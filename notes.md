@@ -2,11 +2,42 @@
 
 Press q to quit out of the debugger
 
+## Helpful Emacs lisp stuff
+
+	http://www.emacswiki.org/emacs/EmacsLispIntro
+  
+  
+
+## Emacs Lisp Intro
+	C-h i
+ 
+ 	Then Click on:
+ 
+ 	Emacs Lisp Intro: (eintr).
+ 
+ 	Or eval:
+ 
+ 	(info "(eintr) Top")
+ 
+ 
+
+## Comments
+
 Semi-colons start commets
 
 ;; This is a comment
 
+
+Commenting out a whole sexp:
+
+C+M+Space to select expression and then M+;
+
+## Truth
+
 nil and '() mean the same thing
+
+false == nil or '()
+true = t
 
 Store a Variable:
 
@@ -37,6 +68,16 @@ Erase a buffer with:
 Go back to other window:
 
 	(other-window 1)
+
+## Let
+
+variables are bound to nil if they are not initialized.
+
+	(let ((birch 3)
+		   pine
+	       fir))
+
+pine and fir are bound to nil
 
 Bind a local variable:
 
@@ -197,6 +238,11 @@ Minimum and maximum permissible value of point in the current buffer.  point-min
 
 ## A special form doesn't evaluate its arguments in the usual manor
 
+## To learn about a function use:
+
+	C-h f
+	(describe-function)
+
 
 ## To make a function interactive
 
@@ -240,6 +286,45 @@ You must unset the previous key binding and reset
 
      (global-unset-key "\C-x2")
      (global-set-key "\C-x2" 'split-window-quietly)
+
+## Eval a current buffer
+
+M eval-buffer
+
+
+## if then else
+
+	(if (some-test)
+		(do-this)
+		(otherwise-this))
+
+## save-excursion
+
+Saves the location of point and mark, executes the body of the
+function and then restores point and mark
+
+- Point is immediately before the character that the cursor is on top of.
+- The "mark" is a position which is set by C-<SPC>.  You can use C-x C-x (exchange-point-and-mark)
+to move the cursor to the mark.  You can set multiple marks.
+
+## `(push-mark)` / `(push-mark (point))`
+
+Set a mark at the current position of the cursor.
+
+
+## `(goto-char (point-min))`
+
+Move cursor to the minimum point in the buffer (the beginning of the
+buffer or the beginning of the accessible portion of the buffer if it
+is narrowed.
+
+
+## let*
+
+Is used when variables later in the var list use variables earlier in the variable list.
+
+
+
 
 
 
